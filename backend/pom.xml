@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.osnz.kits</groupId>
+        <artifactId>spring-boot-angular-maven-kit</artifactId>
+        <version>1.1-SNAPSHOT</version>
+        <relativePath>../.</relativePath>
+    </parent>
+
+    <artifactId>backend</artifactId>
+    <packaging>jar</packaging>
+    <name>backend</name>
+    <description>backend</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-boot.version>1.5.9.RELEASE</spring-boot.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Groovy compiler -->
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-groovy</artifactId>
+            <version>[4.5,6)</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.osnz.kits</groupId>
+            <artifactId>frontend</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- core dependencies -->
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-spring-mvc</artifactId>
+            <version>[5.1,6)</version>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-spring-boot</artifactId>
+            <version>[1.7,2)</version>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-spring-boot-jetty</artifactId>
+            <version>[1.3,2)</version>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.osnz.common</groupId>
+            <artifactId>common-jackson</artifactId>
+            <version>[1.3,2)</version>
+        </dependency>
+
+        <!-- test scope -->
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-spring-boot-test</artifactId>
+            <version>[1.3,2)</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.osnz.composite</groupId>
+            <artifactId>composite-spring-test</artifactId>
+            <version>[5.1,6)</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- spring boot devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>spring-boot-angular-kit</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
